@@ -1,4 +1,4 @@
-import StatusBadge from './components/StatusBadge.js';
+import StatusBadge from './components/StatusBadge';
 
 function App() {
   return (
