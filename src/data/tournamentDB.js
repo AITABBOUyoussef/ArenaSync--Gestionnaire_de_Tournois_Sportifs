@@ -1,6 +1,4 @@
-// src/data/tournamentDB.js
-
-export const tournamentData = [
+export const tournaments = [
   {
     id: "t1",
     title: "Shuttle Masters League",
