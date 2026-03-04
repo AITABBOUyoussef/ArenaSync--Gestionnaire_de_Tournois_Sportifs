@@ -1,7 +1,7 @@
 import React from 'react';
 
 const StatusBadge = ({ status }) => {
-  // Mapping dyal l-alwan 3la hsab l-status dyal l-brief
+  
   const styles = {
     "On Going": "bg-green-100 text-green-700 border-green-200", // US3
     "Upcoming": "bg-blue-100 text-blue-700 border-blue-200",   // US3
