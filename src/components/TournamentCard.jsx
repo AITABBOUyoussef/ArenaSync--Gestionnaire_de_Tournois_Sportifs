@@ -34,5 +34,29 @@ const TournamentCard = ({ tournament }) => {
     </div>
   );
 };
+const [activeTab, setActiveTab] = useState('info');
+
+return (
+  <div>
+    {/* Onglets */}
+    <div className="flex border-b">
+      <button onClick={() => setActiveTab('info')} className={activeTab === 'info' ? 'border-b-2 border-blue-500' : ''}>
+        Infos
+      </button>
+      <button onClick={() => setActiveTab('participants')} className={activeTab === 'participants' ? 'border-b-2 border-blue-500' : ''}>
+        Participants
+      </button>
+    </div>
+
+    {/* Contenu dynamique */}
+    <div className="mt-4">
+      {activeTab === 'info' ? (
+        <p>{tournament.description}</p>
+      ) : (
+        tournament.participants.map(p => <ParticipantRow key={p.id} participant={p} />)
+      )}
+    </div>
+  </div>
+);
 
 export default TournamentCard;
