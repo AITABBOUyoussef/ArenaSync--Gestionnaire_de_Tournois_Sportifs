@@ -20,6 +20,7 @@ export const tournaments = [
   },
   {
     id: "t2",
+    img:"https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?_gl=1*9zbeo5*_ga*MTkyNDkzMjI0MS4xNzcyNzk1NTUw*_ga_8JE65Q40S6*czE3NzI3OTc2NjAkbzIkZzEkdDE3NzI3OTc3NzIkajUwJGwwJGgw",
     title: "Hoops Championship",
     sport: "Basketball",
     status: "Upcoming", // UtilisÃ© pour la couleur du StatusBadge (ex: primary/blue)
@@ -33,6 +34,7 @@ export const tournaments = [
   },
   {
     id: "t3",
+    img:"https://media.istockphoto.com/id/1136522918/photo/boxing-gloves-hanging.jpg?s=612x612&w=is&k=20&c=Zl0yRdoI5QRj37EY6iGsBlpICBrCpA2Y4uJ3vo2GMcY=",
     title: "Ring Masters League",
     sport: "Boxing",
     status: "Pending",

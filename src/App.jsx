@@ -23,7 +23,8 @@ function App() {
         />
 
        <TournamentCard 
-          title={tournaments[1].title} 
+          title={tournaments[1].title}
+          img={tournaments[1].img}
           sport={tournaments[1].sport} 
           status={tournaments[1].status}
           participantsCount = {tournaments[1].participantsCount}
@@ -36,6 +37,7 @@ function App() {
         />
         <TournamentCard 
           title={tournaments[2].title} 
+           img={tournaments[2].img}
           sport={tournaments[2].sport} 
           status={tournaments[2].status}
           participantsCount = {tournaments[2].participantsCount}

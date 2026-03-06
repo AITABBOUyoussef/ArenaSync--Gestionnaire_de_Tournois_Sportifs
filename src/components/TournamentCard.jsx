@@ -13,16 +13,16 @@ export default function TournamentCard(props) {
       
       <h3 className="font-light text-xl m-3">{props.description}</h3>
       <hr className='w-[90%] ml-5'></hr>
-      <div><i class="fa-solid fa-user-clock"></i><p className="text-gray-500 m-1 mt-2">
-         {props.participantsCount} Participants ° {props.type}
+      <div className='flex text-gray-500 m-1 mt-2 gap-2'><i class="fa-solid fa-user-clock"></i><p className="">
+         {props.participantsCount} Participants / {props.type}
       </p></div>
-      <div><i class="fa-solid fa-trophy"></i><p className="text-gray-500  m-1">
+      <div className='flex text-gray-500 m-1 mt-2 gap-2'><i class="fa-solid fa-trophy"></i><p className="">
          {props.format}
       </p></div>
-     <div><i class="fa-regular fa-calendar-days"></i> <p className="text-gray-500  m-1">
+     <div className='flex text-gray-500 m-1 mt-2 gap-2'><i class="fa-regular fa-calendar-days"></i> <p className=" ">
          {props.date}
       </p></div>
-      <div><i class="fa-solid fa-location-dot"></i><p className="text-gray-500 m-1">
+      <div className='flex text-gray-500 m-1 mt-2 gap-2'><i class="fa-solid fa-location-dot"></i><p className="">
          {props.location}
       </p></div>
       
