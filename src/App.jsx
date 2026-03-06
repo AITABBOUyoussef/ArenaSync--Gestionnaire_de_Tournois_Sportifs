@@ -7,30 +7,44 @@ function App() {
 <h1 className="text-3xl font-black mb-8 text-gray-800">ArenaSync</h1>
       
       <div className="flex gap-4 flex-wrap">
-        {/* 2. K-n-khdmo b .map() bach n-douzo 3la l-matchat dyalk wahed b wahed */}
+    
        <TournamentCard 
           title={tournaments[0].title} 
+          
           sport={tournaments[0].sport} 
           status={tournaments[0].status}
           participantsCount = {tournaments[0].participantsCount}
           format = {tournaments[0].format}
           date = {tournaments[0].date}
           location = {tournaments[0].location}
+          description = {tournaments[0].description}
+          type={tournaments[0].type}
 
         />
 
-        {/* L-Match T-Tani (Ra9m 1) */}
-        <TournamentCard 
+       <TournamentCard 
           title={tournaments[1].title} 
           sport={tournaments[1].sport} 
           status={tournaments[1].status}
-        />
+          participantsCount = {tournaments[1].participantsCount}
+          format = {tournaments[1].format}
+          date = {tournaments[1].date}
+          location = {tournaments[1].location}
+          description = {tournaments[1].description}
+          type={tournaments[1].type}
 
-        {/* L-Match T-Talt (Ra9m 2) */}
+        />
         <TournamentCard 
           title={tournaments[2].title} 
           sport={tournaments[2].sport} 
           status={tournaments[2].status}
+          participantsCount = {tournaments[2].participantsCount}
+          format = {tournaments[2].format}
+          date = {tournaments[2].date}
+          location = {tournaments[2].location}
+          description = {tournaments[2].description}
+          type={tournaments[2].type}
+
         />
       </div>
     </div>

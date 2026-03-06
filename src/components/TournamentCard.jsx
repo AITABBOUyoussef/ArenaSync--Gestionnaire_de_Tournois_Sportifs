@@ -3,7 +3,7 @@ import React from 'react'
 export default function TournamentCard(props) {
   return (
    <div className="border border-gray-300 p-4 m-2 rounded-lg bg-white shadow-sm w-72">
-     
+     <img src="" alt="" />
       <span className="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded">
         {props.sport}
       </span>
@@ -25,9 +25,7 @@ export default function TournamentCard(props) {
       <p className="text-gray-500 font-medium mt-1">
          {props.location}
       </p>
-      <p className="text-gray-500 font-medium mt-1">
-         {props.status}
-      </p>
+      
     </div>
   )
 }
