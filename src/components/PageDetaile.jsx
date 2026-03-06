@@ -1,5 +1,5 @@
 import React from 'react'
-
+import ParticipantCard from './ParticipantCard';
 export default function PageDetaile(props) {
   return (
     <div className='min-h-screen'>
@@ -38,16 +38,24 @@ export default function PageDetaile(props) {
       </p></div>
       
     </div>
-    <div>
-        <h4>Participants</h4>
-        <div>
-            <p>Participants List</p>
-            <div className='grid grid-cols-12 gap-1.5'>
-                <div className='grid col-span-6 bg-amber-200 m-2 p-1' ></div>
-                <div className='grid col-span-6 bg-amber-200 m-2 p-1'>e</div>
-            </div>
+  
+    <div className="mt-8">
+        <h3 className="font-bold text-lg mb-4 text-gray-800">
+          Participants List ({participants.length})
+        </h3>
+        
+        {/* L-Grid li k-t-9ssem l-kartoat l-jouj (grid-cols-2) */}
+        <div className="grid grid-cols-2 gap-3">
+          {participants.map((person) => (
+            <ParticipantCard 
+              key={person.id}
+              name={person.name}
+              status={person.status}
+              image={person.image}
+            />
+          ))}
         </div>
-    </div>
+      </div>
     
      </div>
      )
