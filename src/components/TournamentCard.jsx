@@ -8,13 +8,22 @@ export default function TournamentCard(props) {
         {props.sport}
       </span>
       <h2 className="font-bold text-xl mt-3">{props.title}</h2>
-      <h3 className="font-bold text-xl mt-3">{props.des}</h3>
-      
       <p className="text-gray-500 font-medium mt-1">
          {props.status}
       </p>
+      <h3 className="font-bold text-xl mt-3">{props.description}</h3>
+      
       <p className="text-gray-500 font-medium mt-1">
-         {props.status}
+         {props.participantsCount} ° {props.type}
+      </p>
+      <p className="text-gray-500 font-medium mt-1">
+         {props.format}
+      </p>
+      <p className="text-gray-500 font-medium mt-1">
+         {props.date}
+      </p>
+      <p className="text-gray-500 font-medium mt-1">
+         {props.local}
       </p>
       <p className="text-gray-500 font-medium mt-1">
          {props.status}
