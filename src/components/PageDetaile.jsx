@@ -1,5 +1,7 @@
 import React from 'react'
 import ParticipantCard from './ParticipantCard';
+// import { tournaments } from './data/tournamentDB';
+import { tournaments } from '../data/tournamentDB';
 export default function PageDetaile(props) {
   return (
     <div className='min-h-screen'>
@@ -41,17 +43,17 @@ export default function PageDetaile(props) {
   
     <div className="mt-8">
         <h3 className="font-bold text-lg mb-4 text-gray-800">
-          Participants List ({participants.length})
+          Participants List ({tournaments.participants.length})
         </h3>
         
         {/* L-Grid li k-t-9ssem l-kartoat l-jouj (grid-cols-2) */}
         <div className="grid grid-cols-2 gap-3">
-          {participants.map((person) => (
+          {tournaments.participants.map((person) => (
             <ParticipantCard 
               key={person.id}
               name={person.name}
               status={person.status}
-              image={person.image}
+              image={person.avatar}
             />
           ))}
         </div>
