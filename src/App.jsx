@@ -1,6 +1,7 @@
 import React from 'react';
 import TournamentCard from './components/TournamentCard';
 import { tournaments } from './data/tournamentDB';
+import Header from './components/header';
 function App() {
   return (
   <div className='p-10 bg-gray-50 min-h-screen'>
