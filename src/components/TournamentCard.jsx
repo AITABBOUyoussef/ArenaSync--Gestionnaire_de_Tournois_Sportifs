@@ -1,10 +1,24 @@
 import React from 'react'
 
-export default function TournamentCard() {
+export default function TournamentCard(props) {
   return (
-   <div className="border border-gray-300 p-4 m-2 rounded-lg bg-white shadow-sm">
-      {/* K-n-jbdou s-smiya o naw3 dyal l-ryada mn l-props */}
-      <h2 className="font-bold text-xl text-blue-600">{props.titre}</h2>
-      <p className="text-gray-500 font-medium">{props.sport}</p> </div>
+   <div className="border border-gray-300 p-4 m-2 rounded-lg bg-white shadow-sm w-72">
+     
+      <span className="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded">
+        {props.sport}
+      </span>
+      <h2 className="font-bold text-xl mt-3">{props.title}</h2>
+      <h3 className="font-bold text-xl mt-3">{props.des}</h3>
+      
+      <p className="text-gray-500 font-medium mt-1">
+         {props.status}
+      </p>
+      <p className="text-gray-500 font-medium mt-1">
+         {props.status}
+      </p>
+      <p className="text-gray-500 font-medium mt-1">
+         {props.status}
+      </p>
+    </div>
   )
 }
