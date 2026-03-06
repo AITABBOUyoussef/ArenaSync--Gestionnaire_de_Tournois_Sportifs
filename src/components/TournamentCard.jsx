@@ -23,7 +23,7 @@ export default function TournamentCard(props) {
          {props.date}
       </p>
       <p className="text-gray-500 font-medium mt-1">
-         {props.local}
+         {props.location}
       </p>
       <p className="text-gray-500 font-medium mt-1">
          {props.status}

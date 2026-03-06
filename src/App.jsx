@@ -12,6 +12,11 @@ function App() {
           title={tournaments[0].title} 
           sport={tournaments[0].sport} 
           status={tournaments[0].status}
+          participantsCount = {tournaments[0].participantsCount}
+          format = {tournaments[0].format}
+          date = {tournaments[0].date}
+          location = {tournaments[0].location}
+
         />
 
         {/* L-Match T-Tani (Ra9m 1) */}
