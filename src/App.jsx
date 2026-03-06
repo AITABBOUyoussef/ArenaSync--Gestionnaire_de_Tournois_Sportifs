@@ -43,6 +43,7 @@ function App() {
           location = {tournaments[1].location}
           description = {tournaments[1].description}
           type={tournaments[1].type}
+          click={()=> setDet(tournaments[1])}
 
         />
         <TournamentCard 
@@ -56,6 +57,7 @@ function App() {
           location = {tournaments[2].location}
           description = {tournaments[2].description}
           type={tournaments[2].type}
+          click={()=> setDet(tournaments[2])}
 
         />
       </div>

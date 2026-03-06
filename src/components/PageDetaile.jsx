@@ -2,10 +2,25 @@ import React from 'react'
 import ParticipantCard from './ParticipantCard';
 // import { tournaments } from './data/tournamentDB';
 import { tournaments } from '../data/tournamentDB';
+// import TournamentCard from './TournamentCard';
 export default function PageDetaile(props) {
+
+   let bgStatus = "bg-red-100" ;
+   let textStatus = "";
+if(props.match.status ==="On Going"){
+  bgStatus ='bg-green-500';
+  textStatus ='text-green-900';
+}else if(props.match.status ==="Upcoming"){
+  bgStatus = "bg-blue-800/40";
+  textStatus ='text-blue-900';
+}else{
+  bgStatus = 'bg-orange-500';
+  textStatus ='text-orange-900';
+}
+
   return (
     <div className='min-h-screen'>
-<div className="border border-gray-300  rounded-lg ml-2 shadow-sm w-[95%] p-3 bg-blue-500 ">
+<div className="border border-gray-300  rounded-lg ml-2 shadow-sm w-[95%] p-3 bg-blue-500/80 ">
       <div className='mb-6  py-2 px-4 flex justify-around  w-full'>
       <button 
         onClick={props.back} 
@@ -20,7 +35,7 @@ export default function PageDetaile(props) {
  <div className='flex gap-4'><img src={props.match.img} alt="" className='w-14 h-14 rounded-lg m-2'/>
      <div className='flex flex-col'>
       <h2 className="font-bold text-xl mt-2">{props.match.title}</h2>
-      <span className="text-xs flex justify-center items-center font-bold bg-blue-100 text-blue-800  rounded-4xl w-[40%] h-6">
+      <span className={`text-xs flex justify-center items-center font-bold ${bgStatus} ${textStatus}  rounded-4xl w-[40%] h-6`}>
          {props.match.status}
       </span></div></div>
       
@@ -43,12 +58,12 @@ export default function PageDetaile(props) {
   
     <div className="mt-8">
         <h3 className="font-bold text-lg mb-4 text-gray-800">
-          Participants List ({tournaments.participants.length})
+          Participants List ({props.match.participants.length})
         </h3>
         
-        {/* L-Grid li k-t-9ssem l-kartoat l-jouj (grid-cols-2) */}
-        <div className="grid grid-cols-2 gap-3">
-          {tournaments.participants.map((person) => (
+       
+        <div className="grid grid-cols-2 gap-3 p-1 m-3">
+          {props.match.participants.map((person) => (
             <ParticipantCard 
               key={person.id}
               name={person.name}
