@@ -1,6 +1,7 @@
 export const tournaments = [
   {
     id: "t1",
+    img:"https://images.pexels.com/photos/2618794/pexels-photo-2618794.jpeg?_gl=1*i214gk*_ga*MTkyNDkzMjI0MS4xNzcyNzk1NTUw*_ga_8JE65Q40S6*czE3NzI3OTU1NTAkbzEkZzEkdDE3NzI3OTU2NDEkajU2JGwwJGgw",
     title: "Shuttle Masters League",
     sport: "Badminton",
     status: "On Going", // UtilisÃ© pour la couleur du StatusBadge (ex: success/green)

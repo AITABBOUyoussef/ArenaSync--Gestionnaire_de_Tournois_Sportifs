@@ -10,7 +10,7 @@ function App() {
     
        <TournamentCard 
           title={tournaments[0].title} 
-          
+          // img={tournaments[0].img}
           sport={tournaments[0].sport} 
           status={tournaments[0].status}
           participantsCount = {tournaments[0].participantsCount}
