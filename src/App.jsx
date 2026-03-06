@@ -6,6 +6,7 @@ function App() {
   <div className='p-10 bg-gray-50 min-h-screen'>
 {/* <h1 className="text-3xl font-black mb-8 text-gray-800">ArenaSync</h1>
        */}
+       <Header />
       <div className="flex gap-4 flex-wrap">
     
        <TournamentCard 
