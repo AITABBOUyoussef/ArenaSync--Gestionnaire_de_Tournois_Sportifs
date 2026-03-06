@@ -7,7 +7,7 @@ export default function TournamentCard(props) {
      <div className='flex gap-4'><img src={props.img} alt="" className='w-14 h-14 rounded-lg m-2'/>
      <div className='flex flex-col'>
       <h2 className="font-bold text-xl mt-2">{props.title}</h2>
-      <span className="text-xs flex justify-center items-center font-bold bg-blue-100 text-blue-800 rounded w-[40%] h-6">
+      <span className="text-xs flex justify-center items-center font-bold bg-blue-100 text-blue-800  rounded w-[40%] h-6">
          {props.status}
       </span></div></div>
       
