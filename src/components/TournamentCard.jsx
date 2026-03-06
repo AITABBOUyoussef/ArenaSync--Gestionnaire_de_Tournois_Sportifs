@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function TournamentCard(props) {
   return (
-   <div className="border border-gray-300  rounded-lg bg-white shadow-sm w-[95%] p-3">
+   <div onClick={props.click} className="border border-gray-300  rounded-lg bg-white shadow-sm w-[95%] p-3">
 
      <div className='flex gap-4'><img src={props.img} alt="" className='w-14 h-14 rounded-lg m-2'/>
      <div className='flex flex-col'>

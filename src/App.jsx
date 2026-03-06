@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TournamentCard from './components/TournamentCard';
 import { tournaments } from './data/tournamentDB';
 import Header from './components/header';
+import PageDetaile from './components/PageDetaile';
 function App() {
+  const [det, setDet ]= useState(null);
+  if(det !== null){
+    return(
+      <PageDetaile match={det} 
+      back={()=> setDet(null)}/>
+    );
+  }
   return (
   <div className='p-10 bg-gray-50 min-h-screen'>
-{/* <h1 className="text-3xl font-black mb-8 text-gray-800">ArenaSync</h1>
-       */}
+
        <Header />
       <div className="flex gap-4 flex-wrap">
     
@@ -21,6 +28,7 @@ function App() {
           location = {tournaments[0].location}
           description = {tournaments[0].description}
           type={tournaments[0].type}
+          click={()=> setDet(tournaments[0])}
 
         />
 
