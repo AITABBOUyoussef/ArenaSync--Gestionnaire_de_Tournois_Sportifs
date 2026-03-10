@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React from 'react';
+import React, { useState } from 'react';
 export default function Header() {
    const [search, setSearch] = useState(''); // Declare search state variable and its setter
 
@@ -21,7 +21,7 @@ export default function Header() {
     placeholder="Rechercher un tournoi..." 
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-    class="flex-1 bg-transparent border-none outline-none text-gray-800 placeholder-gray-500  text-base"
+    className="flex-1 bg-transparent border-none outline-none text-gray-800 placeholder-gray-500  text-base"
   />
 
   <button class="bg-[#6151f9] hover:bg-[#4f41d3] p-2 mr-2 text-white w-12 h-10 rounded-xl flex items-center justify-center ">
