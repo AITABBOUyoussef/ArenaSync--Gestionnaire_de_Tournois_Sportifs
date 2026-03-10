@@ -16,7 +16,9 @@ export default function Header() {
 
   <input 
     type="text" 
-    placeholder="Search" 
+    placeholder="Rechercher un tournoi..." 
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
     class="flex-1 bg-transparent border-none outline-none text-gray-800 placeholder-gray-500  text-base"
   />
 
