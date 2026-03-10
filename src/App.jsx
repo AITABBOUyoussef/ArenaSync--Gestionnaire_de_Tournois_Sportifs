@@ -5,12 +5,15 @@ import Header from './components/header';
 import PageDetaile from './components/PageDetaile';
 function App() {
   const [det, setDet ]= useState(null);
+  const [search , setSearch]=useState("");
   if(det !== null){
     return(
       <PageDetaile match={det} 
       back={()=> setDet(null)}/>
     );
   }
+  const matchFiler = tournaments.filter((match)=>
+  match.title.toLowerCase().includes(search.toLowerCase()));
   return (
   <div className='p-10 bg-gray-50 min-h-screen'>
 
