@@ -20,7 +20,7 @@ function App() {
        <Header />
       <div className="flex gap-4 flex-wrap">
     
-       <TournamentCard 
+       {/* <TournamentCard 
           title={tournaments[0].title} 
           img={tournaments[0].img}
           sport={tournaments[0].sport} 
@@ -62,7 +62,29 @@ function App() {
           type={tournaments[2].type}
           click={()=> setDet(tournaments[2])}
 
-        />
+
+        /> */}
+        {matchFiler.length > 0 ? (
+          matchFiler.map((match) => (
+            <TournamentCard 
+              key={match.id}
+              title={match.title} 
+              img={match.img}
+              sport={match.sport} 
+              status={match.status}
+              participantsCount={match.participantsCount}
+              format={match.format}
+              date={match.date}
+              location={match.location}
+              description={match.description}
+              type={match.type}
+              click={()=> setDet(match)}
+            />
+          ))
+        ) : (
+          // Ila ma lqa hta match b dik s-smiya
+          <p className="text-gray-500 ml-5 font-bold">Makin hta match b had s-smiya "{searchQuery}" 🏜️</p>
+        )}
       </div>
     </div>
  

@@ -1,6 +1,8 @@
 import React from 'react'
 
 export default function Header() {
+   const [search, setSearch] = useState(''); // Declare search state variable and its setter
+
   return (
     <div className='bg-blue-500 w-[95%] p-3 rounded-t-3xl flex flex-col gap-2'>
       <div className='flex  justify-between  '>
@@ -17,8 +19,8 @@ export default function Header() {
   <input 
     type="text" 
     placeholder="Rechercher un tournoi..." 
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
     class="flex-1 bg-transparent border-none outline-none text-gray-800 placeholder-gray-500  text-base"
   />
 
