@@ -103,8 +103,6 @@ import Input from './components/Input';
 function App() {
   const [det, setDet] = useState(null);
   
- 
-  // const [search, setSearch] = useState("");
 
   if (det !== null) {
     return (
@@ -121,7 +119,7 @@ function App() {
 
      
       <div className="my-6 flex justify-center">
-        <Input />
+        <Input setDet={setDet} />
       </div>
 
       <div className="flex gap-4 flex-wrap">
