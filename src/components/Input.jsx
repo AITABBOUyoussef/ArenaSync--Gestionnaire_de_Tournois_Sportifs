@@ -38,7 +38,7 @@ export default function Input(props) {
 
      
       <div className="flex gap-4 flex-wrap mt-4">
-        {matchFiler.length !== 0 ? (
+        {matchFiler.length > 0 ? (
           // IF: 
           matchFiler.map((match) => (
             <TournamentCard 
@@ -53,7 +53,6 @@ export default function Input(props) {
               location={match.location}
               description={match.description}
               type={match.type}
-              // Mola7ada: setDet khassha t-koun jaya mn props hit Input ma-fiha-ch setDet
               click={() => props.setDet(match)} 
             />
           ))
