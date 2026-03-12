@@ -39,7 +39,7 @@ if(props.status ==="On Going"){
          {props.location}
       </p></div>
       <div className='flex justify-between mx-5'><button><i className="fa-solid fa-plus" ></i> </button>
-      <button className='bg-green-400 '> m'inscrire/me désinscrire</button>
+      <button className='bg-green-400 rounded-4xl p-1  '> m'inscrire/me désinscrire</button>
       </div>
       
     </div>

@@ -15,7 +15,7 @@ export default function Input(props) {
     <div>
       
       <dir>
-          <div class="flex items-center bg-white p-1 rounded-full shadow-sm max-w-md w-[96%] border border-gray-100 ml-2 mt-2">
+          <div class="flex  ml-4 bg-white p-2 rounded-full shadow-sm  w-[90%] border border-gray-100 ">
   
   <span class=" text-gray-500 text-lg  p-1 ml-2">
     <i class="fa-solid fa-magnifying-glass"></i>

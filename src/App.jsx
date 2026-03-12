@@ -114,11 +114,11 @@ function App() {
  
 
   return (
-    <div className='p-10 bg-gray-50 min-h-screen'>
+    <div className='p-10 bg-gray-50 min-h-screen w-full'>
       <Header />
 
      
-      <div className="my-6 flex justify-center">
+      <div className="my-6 flex justify-center w-full">
         <Input setDet={setDet} />
       </div>
 
