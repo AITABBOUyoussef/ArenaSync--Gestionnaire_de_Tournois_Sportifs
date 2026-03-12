@@ -122,30 +122,7 @@ function App() {
         <Input setDet={setDet} />
       </div>
 
-      <div className="flex gap-4 flex-wrap">
-        
-        {/* {matchFiler.length > 0 ? (
-          matchFiler.map((match) => (
-            <TournamentCard 
-              key={match.id}
-              title={match.title} 
-              img={match.img}
-              sport={match.sport} 
-              status={match.status}
-              participantsCount={match.participantsCount}
-              format={match.format}
-              date={match.date}
-              location={match.location}
-              description={match.description}
-              type={match.type}
-              click={() => setDet(match)}
-            />
-          ))
-        ) : (
-          
-          <p className="text-gray-500 ml-5 font-bold">not find "{search}" 🏜️</p>
-        )} */}
-      </div>
+      
     </div>
   );
 }

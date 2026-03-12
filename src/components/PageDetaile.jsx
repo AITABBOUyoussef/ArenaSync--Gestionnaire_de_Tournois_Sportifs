@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ParticipantCard from './ParticipantCard';
 import { tournaments } from '../data/tournamentDB';
 export default function PageDetaile(props) {
 
    let bgStatus = "bg-red-100" ;
    let textStatus = "";
+  
 if(props.match.status ==="On Going"){
   bgStatus ='bg-green-500';
   textStatus ='text-green-900';
@@ -15,7 +16,9 @@ if(props.match.status ==="On Going"){
   bgStatus = 'bg-orange-500';
   textStatus ='text-orange-900';
 }
-
+const [isSubscribed , setIsSubscribed] = useState(false);
+ const color = isSubscribed ? 'bg-red-500'  : 'bg-blue-500' ;
+const totalParticipants =  setIsSubscribed ? props.match.participantsCount + 1 : props.match.participantsCount;
   return (
     <div className='min-h-screen'>
 <div className="border border-gray-300  rounded-lg ml-2 shadow-sm w-[95%] p-3 bg-blue-500/80 ">
@@ -67,9 +70,11 @@ if(props.match.status ==="On Going"){
               name={person.name}
               status={person.status}
               image={person.avatar}
+              totalParticipants
             />
           ))}
         </div>
+        <button className={ `${color}` } onClick={setIsSubscribed}>{isSubscribed?"Se désinscrire" :"S'inscrire"}</button>
       </div>
     
      </div>
