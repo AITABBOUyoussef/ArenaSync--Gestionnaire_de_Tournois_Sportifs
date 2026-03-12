@@ -1,8 +1,6 @@
 import React from 'react'
 import ParticipantCard from './ParticipantCard';
-// import { tournaments } from './data/tournamentDB';
 import { tournaments } from '../data/tournamentDB';
-// import TournamentCard from './TournamentCard';
 export default function PageDetaile(props) {
 
    let bgStatus = "bg-red-100" ;

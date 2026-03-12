@@ -1,5 +1,6 @@
 import React from 'react'
 import { tournaments } from '../data/tournamentDB';
+
 export default function TournamentCard(props) {
    let bgStatus = "bg-red-100" ;
    let textStatus = "";

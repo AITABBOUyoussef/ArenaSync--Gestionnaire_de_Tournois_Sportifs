@@ -98,12 +98,13 @@ import TournamentCard from './components/TournamentCard';
 import { tournaments } from './data/tournamentDB';
 import Header from './components/header'; 
 import PageDetaile from './components/PageDetaile';
+import Input from './components/Input';
 
 function App() {
   const [det, setDet] = useState(null);
   
  
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
 
   if (det !== null) {
     return (
@@ -112,9 +113,7 @@ function App() {
   }
 
  
-  const matchFiler = tournaments.filter((match) =>
-    match.title.toLowerCase().includes(search.toLowerCase())
-  );
+ 
 
   return (
     <div className='p-10 bg-gray-50 min-h-screen'>
@@ -122,35 +121,11 @@ function App() {
 
      
       <div className="my-6 flex justify-center">
-        <input 
-          type="text" 
-          placeholder="Rechercher un tournoi..." 
-          value={search} 
-          onChange={(e) => setSearch(e.target.value)} 
-          className="w-[95%] p-3 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+        <Input />
       </div>
 
       <div className="flex gap-4 flex-wrap">
-         if ( matchFiler.length !== 0 ) {
-           matchFiler.map((match) => (
-            <TournamentCard 
-              key={match.id}
-              title={match.title} 
-              img={match.img}
-              sport={match.sport} 
-              status={match.status}
-              participantsCount={match.participantsCount}
-              format={match.format}
-              date={match.date}
-              location={match.location}
-              description={match.description}
-              type={match.type}
-              click={() => setDet(match)}
-            />
-          ))
         
-         }else { <p className="text-gray-500 ml-5 font-bold">not find "{search}" 🏜️</p>}
         {/* {matchFiler.length > 0 ? (
           matchFiler.map((match) => (
             <TournamentCard 
