@@ -18,7 +18,7 @@ if(props.match.status ==="On Going"){
 }
 const [isSubscribed , setIsSubscribed] = useState(false);
  const color = isSubscribed ? 'bg-red-500'  : 'bg-blue-500' ;
-const totalParticipants =  setIsSubscribed ? props.match.participantsCount + 1 : props.match.participantsCount;
+const totalParticipants =  isSubscribed ? props.match.participants.length + 1 : props.match.participants.length;
   return (
     <div className='min-h-screen'>
 <div className="border border-gray-300  rounded-lg ml-2 shadow-sm w-[95%] p-3 bg-blue-500/80 ">
@@ -43,7 +43,7 @@ const totalParticipants =  setIsSubscribed ? props.match.participantsCount + 1 :
       <h3 className="font-light text-xl m-3">{props.match.description}</h3>
       <hr className='w-[90%] ml-5'></hr>
       <div className='flex text-gray-500 m-1 mt-2 gap-2'><i class="fa-solid fa-user-clock"></i><p className="">
-         {props.match.participantsCount} Participants / {props.match.type}
+         {totalParticipants}  Participants / {props.match.type}
       </p></div>
       <div className='flex text-gray-500 m-1 mt-2 gap-2'><i class="fa-solid fa-trophy"></i><p className="">
          {props.match.format}
@@ -59,7 +59,7 @@ const totalParticipants =  setIsSubscribed ? props.match.participantsCount + 1 :
   
     <div className="mt-8">
         <h3 className="font-bold text-lg mb-4 text-gray-800">
-          Participants List ({props.match.participants.length})
+          Participants List ({totalParticipants})
         </h3>
         
        
@@ -70,11 +70,11 @@ const totalParticipants =  setIsSubscribed ? props.match.participantsCount + 1 :
               name={person.name}
               status={person.status}
               image={person.avatar}
-              totalParticipants
+              
             />
           ))}
         </div>
-        <button className={ `${color}` } onClick={setIsSubscribed}>{isSubscribed?"Se désinscrire" :"S'inscrire"}</button>
+        <button className={ `${color}` } onClick={()=>setIsSubscribed(!isSubscribed)}>{isSubscribed?"Se désinscrire" :"S'inscrire"}</button>
       </div>
     
      </div>
