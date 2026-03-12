@@ -1,29 +1,46 @@
-import React from 'react'
 import React, { useState } from 'react';
 import TournamentCard from './TournamentCard';
 
+import { tournaments } from '../data/tournamentDB'; 
 
-  export default function Input() {
-
-    const [search, setSearch] = useState('');
-     const matchFiler = tournaments.filter((match) =>
+export default function Input(props) {
+  const [search, setSearch] = useState('');
+  
+  const matchFiler = tournaments.filter((match) =>
     match.title.toLowerCase().includes(search.toLowerCase())
   );
-  if(){
-     return (
+
+ 
+  return (
     <div>
-         <input 
+      
+      <dir>
+          <div class="flex items-center bg-white p-1 rounded-full shadow-sm max-w-md w-[96%] border border-gray-100 ml-2 mt-2">
+  
+  <span class=" text-gray-500 text-lg  p-1 ml-2">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </span>
+
+  <input 
     type="text" 
     placeholder="Rechercher un tournoi..." 
           value={search}
           onChange={(e) => setSearch(e.target.value)}
     className="flex-1 bg-transparent border-none outline-none text-gray-800 placeholder-gray-500  text-base"
   />
-    </div>
-  )
-  }
- else if ( matchFiler.length !== 0 ){
-return( matchFiler.map((match) => (
+
+  <button class="bg-[#6151f9] hover:bg-[#4f41d3] p-2 mr-2 text-white w-12 h-10 rounded-xl flex items-center justify-center ">
+    <i class="fa-solid fa-sliders"></i>
+  </button>
+
+</div>
+      </dir>
+
+     
+      <div className="flex gap-4 flex-wrap mt-4">
+        {matchFiler.length !== 0 ? (
+          // IF: 
+          matchFiler.map((match) => (
             <TournamentCard 
               key={match.id}
               title={match.title} 
@@ -36,9 +53,15 @@ return( matchFiler.map((match) => (
               location={match.location}
               description={match.description}
               type={match.type}
-              click={() => setDet(match)}
+              // Mola7ada: setDet khassha t-koun jaya mn props hit Input ma-fiha-ch setDet
+              click={() => props.setDet(match)} 
             />
-          )))
- }else{
- <p className="text-gray-500 ml-5 font-bold">not find "{search}" </p>
-} }
+          ))
+        ) : (
+          // ELSE:
+          <p className="text-gray-500 ml-5 font-bold">not find "{search}" </p>
+        )}
+      </div>
+    </div>
+  );
+}
