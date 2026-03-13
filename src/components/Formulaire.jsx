@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
 
 export default function Formulaire(props) {
-  // 1. D-dakira dyal l-formulaire wllat m-3zoula hna
   const [nom, setNom] = useState("");
   const [equipe, setEquipe] = useState("");
   const [niveau, setNiveau] = useState("Débutant");
 
-  // 2. L-3essass (Regex)
   const nomRegex = /^[a-zA-Z\s]{3,}$/;
   const isNomValid = nomRegex.test(nom);
 
-  // 3. L-alwan dyal l-bouton
   const color = props.isSubscribed ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-600 hover:bg-blue-700';
 
-  // 4. Melli k-n-klickiw 3la l-bouton
   const gererClick = () => {
     if (props.isSubscribed) {
-      props.setIsSubscribed(false);
+      // 1. Ila kan m-sajjel, k-n-ms7ouh mn l-lista b la fonction jdida
+      props.supprimerParticipant();
     } else {
-      // K-n-sifto s-smiya o l-niveau l-PageDetaile bach t-zidhom f l-lista
       props.ajouterParticipant(nom, niveau);
       setNom("");
       setEquipe("");
@@ -27,7 +23,8 @@ export default function Formulaire(props) {
 
   return (
     <div className="w-[95%] mx-auto mb-10 px-4">
-      {/* L-Formulaire kiy-ban ghir ila makanch m-sajjel (US6) */}
+      
+      {/* Ila makanch m-sajjel -> Biyn l-Formulaire */}
       {!props.isSubscribed && (
         <div className="bg-gray-100 p-4 rounded-lg mb-6 shadow-sm border border-gray-200">
           <h4 className="font-bold text-gray-800 mb-3">Rejoindre le tournoi</h4>
@@ -65,7 +62,15 @@ export default function Formulaire(props) {
         </div>
       )}
 
-      {/* L-Bouton dyal Inscription */}
+      {/* 2. ZDNA HADI: Message zwin kiy-ban ila kan m-sajjel */}
+      {props.isSubscribed && (
+        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6 text-center shadow-sm">
+          <p className="font-bold"><i className="fa-solid fa-circle-check mr-2"></i>Vous êtes inscrit à ce tournoi !</p>
+          <p className="text-sm mt-1">Vous pouvez vous désinscrire à tout moment ci-dessous.</p>
+        </div>
+      )}
+
+      {/* L-Bouton dyal Inscription / Désinscription */}
       <div className="flex justify-center">
         <button 
           disabled={(!isNomValid || nom === "") && !props.isSubscribed} 
