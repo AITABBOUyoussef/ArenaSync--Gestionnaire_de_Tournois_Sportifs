@@ -26,6 +26,19 @@ const totalParticipants =  isSubscribed ? props.match.participants.length + 1 : 
 const nomRegex = /^[a-zA-Z\s]{3,}$/;
 const isNomValid = nomRegex.test(nom);
 
+const ajouterParticipant = ()=>{
+  const nouveauParticipant = {
+    id: Date.now(),
+    name : nom,
+    status: niveau,
+    avatar: "https://ui-avatars.com/api/?name=" + nom + "&background=random"
+  };
+  setParticipantsList([...participantsList,nouveauParticipant]);
+  setIsSubscribed(true);
+  setNom("");
+  setEquipe("");
+};
+
   return (
     <div className='min-h-screen'>
 <div className="border border-gray-300  rounded-lg ml-2 shadow-sm w-[95%] p-3 bg-blue-500/80 ">
@@ -66,12 +79,13 @@ const isNomValid = nomRegex.test(nom);
   
     <div className="mt-8">
         <h3 className="font-bold text-lg mb-4 text-gray-800">
-          Participants List ({totalParticipants})
+          Participants List ({participantsList.length})
         </h3>
         
        
         <div className="grid grid-cols-2 gap-3 p-1 m-3">
-          {props.match.participants.map((person) => (
+          {/* {props.match.participants.map((person) => (     nbdloha b participantsList.map*/}
+          {participantsList.map((person) => (
             <ParticipantCard 
               key={person.id}
               name={person.name}
@@ -127,12 +141,17 @@ const isNomValid = nomRegex.test(nom);
 
        
         <div className="flex justify-center mb-10">
-          
+          {/* -------------------- lbtn ----------------- */}
         <button 
           disabled={!isNomValid || nom === ""}
         className={`w-[90%] py-3 text-white font-bold rounded-lg transition-colors 
               ${(!isNomValid || nom === "") ? 'bg-gray-400 cursor-not-allowed' : color}`}
-               onClick={()=>setIsSubscribed(!isSubscribed)}>{isSubscribed?"Se désinscrire" :"S'inscrire"}</button>
+
+               onClick={()=>{
+               if(isSubscribed){setIsSubscribed(false);
+                  }else{ajouterParticipant();}
+               }}
+               >{isSubscribed?"Se désinscrire" :"Valider l'inscription"}</button>
         </div>
       </div>
     
