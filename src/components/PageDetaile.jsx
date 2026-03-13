@@ -17,8 +17,12 @@ if(props.match.status ==="On Going"){
   textStatus ='text-orange-900';
 }
 const [isSubscribed , setIsSubscribed] = useState(false);
+const [ nom,setNom ]= useState("");
+const [equipe ,setEquipe ]= useState("");
+const [ niveau , setNiveau ]= useState("Débutant");
  const color = isSubscribed ? 'bg-red-500'  : 'bg-blue-500' ;
 const totalParticipants =  isSubscribed ? props.match.participants.length + 1 : props.match.participants.length;
+
   return (
     <div className='min-h-screen'>
 <div className="border border-gray-300  rounded-lg ml-2 shadow-sm w-[95%] p-3 bg-blue-500/80 ">
@@ -74,7 +78,50 @@ const totalParticipants =  isSubscribed ? props.match.participants.length + 1 : 
             />
           ))}
         </div>
+       
+        
+        {/* ---------- FORMULAIRE ---------- */}
+        <div className="bg-blue-300 p-4 rounded-lg mb-6 w-[95%] mx-auto shadow-sm border border-blue-600">
+          <h4 className="font-bold text-gray-800 mb-3 flex justify-center">Rejoindre le tournoi</h4>
+          
+          <div className="flex flex-col gap-3">
+           
+            <input 
+              type="text" 
+              placeholder="Votre Nom (ex: Youssef)" 
+              value={nom} 
+              onChange={(e) => setNom(e.target.value)} 
+              className="p-2 border border-blue-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+
+          
+            <input 
+              type="text" 
+              placeholder="Nom de l'équipe (Optionnel)" 
+              value={equipe} 
+              onChange={(e) => setEquipe(e.target.value)} 
+              className="p-2 border border-blue-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+
+            
+            <select 
+              value={niveau} 
+              onChange={(e) => setNiveau(e.target.value)}
+              className="p-2 border border-blue-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-blue-300"
+            >
+              <option value="Débutant">Débutant</option>
+              <option value="Amateur">Amateur</option>
+              <option value="Pro">Pro</option>
+            </select>
+          </div>
+        </div>
+        {/* ----------------------------------------------- */}
+
+       
+        <div className="flex justify-center mb-10">
+          
         <button className={ `${color}` } onClick={()=>setIsSubscribed(!isSubscribed)}>{isSubscribed?"Se désinscrire" :"S'inscrire"}</button>
+        </div>
       </div>
     
      </div>
