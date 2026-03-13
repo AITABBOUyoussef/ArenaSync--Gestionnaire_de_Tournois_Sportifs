@@ -17,18 +17,18 @@ export default function PageDetaile(props) {
     textStatus ='text-orange-900';
   }
 
-  // 1. D-DAKIRA DYAL ONGLETS (US6 REJ3AT!)
+  // 1. GESTION DES ONGLETS (TABS)
   const [activeTab, setActiveTab] = useState("info");
 
-  // 2. STATES DYAL FORMULAIRE W PARTICIPANTS
-  const [isSubscribed , setIsSubscribed] = useState(false);
+  // 2. ÉTATS DU FORMULAIRE ET DES PARTICIPANTS (avec sauvegarde dans props.match)
+  const [isSubscribed , setIsSubscribed] = useState(props.match.isSubscribed || false);
   const [ nom,setNom ]= useState("");
   const [equipe ,setEquipe ]= useState("");
   const [ niveau , setNiveau ]= useState("Débutant");
   const [participantsList , setParticipantsList] = useState(props.match.participants);
   
-  // 3. ID BACH N3QLOU 3LIK
-  const [monId, setMonId] = useState(null);
+  // 3. IDENTIFIANT DU PARTICIPANT (sauvegardé dans props.match)
+  const [monId, setMonId] = useState(props.match.monId || null);
 
   const color = isSubscribed ? 'bg-red-500'  : 'bg-blue-500' ;
   const nomRegex = /^[a-zA-Z\s]{3,}$/;
@@ -44,24 +44,35 @@ export default function PageDetaile(props) {
     };
     
     props.match.participants.push(nouveauParticipant);
+    
+    // Sauvegarde des données dans l'objet match pour la persistance
+    props.match.isSubscribed = true;
+    props.match.monId = newId;
+
     setParticipantsList([...participantsList, nouveauParticipant]);
     setIsSubscribed(true);
     setMonId(newId);
     setNom("");
     setEquipe("");
 
-    // Mli k-y-tsjjel, k-n-diweh mobachara i-chouf l-lista
+    // Redirection automatique vers l'onglet des participants
     setActiveTab("participants");
   };
 
   const supprimerParticipant = () => {
+    // Suppression dans l'affichage local
     const listeJdida = participantsList.filter(person => person.id !== monId);
     setParticipantsList(listeJdida);
 
+    // Suppression dans la base de données factice (props)
     const index = props.match.participants.findIndex(person => person.id === monId);
     if(index !== -1) {
       props.match.participants.splice(index, 1);
     }
+
+    // Réinitialisation de la sauvegarde dans le match
+    props.match.isSubscribed = false;
+    props.match.monId = null;
 
     setIsSubscribed(false);
     setMonId(null);
@@ -70,7 +81,7 @@ export default function PageDetaile(props) {
   return (
     <div className='min-h-screen bg-gray-50 pb-10'>
       
-      {/* --- L-HEADER & BOUTON RETOUR --- */}
+      {/* --- EN-TÊTE ET BOUTON RETOUR --- */}
       <div className='py-4 px-4 flex items-center w-full bg-white shadow-sm mb-4'>
         <button onClick={props.back} className="hover:bg-gray-100 text-gray-800 font-bold py-2 px-4 rounded-lg flex gap-2 items-center">
           <i className="fa-solid fa-arrow-left"></i> Retour
@@ -78,7 +89,7 @@ export default function PageDetaile(props) {
         <p className='flex-1 text-center font-bold text-xl mr-8'>Tournoi</p>
       </div>
 
-      {/* --- L-ONGLETS (US6) --- */}
+      {/* --- ONGLETS --- */}
       <div className="flex justify-center gap-3 my-6 px-2 flex-wrap">
         <button 
           onClick={() => setActiveTab("info")}
@@ -94,7 +105,7 @@ export default function PageDetaile(props) {
         >S'inscrire</button>
       </div>
 
-      {/* --- CONTENU 1: INFOS --- */}
+      {/* --- CONTENU 1 : INFORMATIONS --- */}
       {activeTab === "info" && (
         <div className="border border-gray-300 rounded-lg shadow-sm w-[95%] mx-auto p-4 bg-blue-500/80 text-white animate-fade-in">
           <div className='flex gap-4'>
@@ -115,7 +126,7 @@ export default function PageDetaile(props) {
         </div>
       )}
 
-      {/* --- CONTENU 2: PARTICIPANTS --- */}
+      {/* --- CONTENU 2 : LISTE DES PARTICIPANTS --- */}
       {activeTab === "participants" && (
         <div className="mt-4 px-4 animate-fade-in">
           <div className="grid grid-cols-2 gap-3 p-1 mb-8">
@@ -126,7 +137,7 @@ export default function PageDetaile(props) {
         </div>
       )}
 
-      {/* --- CONTENU 3: INSCRIPTION (FORMULAIRE) --- */}
+      {/* --- CONTENU 3 : FORMULAIRE D'INSCRIPTION --- */}
       {activeTab === "inscription" && (
         <div className="mt-4 animate-fade-in w-[95%] mx-auto">
           
