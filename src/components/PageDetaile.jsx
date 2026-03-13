@@ -22,6 +22,8 @@ const [equipe ,setEquipe ]= useState("");
 const [ niveau , setNiveau ]= useState("Débutant");
  const color = isSubscribed ? 'bg-red-500'  : 'bg-blue-500' ;
 const totalParticipants =  isSubscribed ? props.match.participants.length + 1 : props.match.participants.length;
+const nomRegex = /^[a-zA-Z\s]{3,}$/;
+const isNomValid = nomRegex.test(nom);
 
   return (
     <div className='min-h-screen'>
