@@ -88,14 +88,19 @@ const isNomValid = nomRegex.test(nom);
           
           <div className="flex flex-col gap-3">
            
-            <input 
+           <div>
+             <input 
               type="text" 
               placeholder="Votre Nom (ex: Youssef)" 
               value={nom} 
               onChange={(e) => setNom(e.target.value)} 
-              className="p-2 border border-blue-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-
+             className={`w-full p-2 border rounded focus:outline-none focus:ring-2 
+                  ${nom.length > 0 && !isNomValid ? 'border-red-500 focus:ring-red-500' : 'border-blue-600 focus:ring-blue-500'}`}
+                  />
+                      {nom.length > 0 && !isNomValid && (
+                        <p className="text-red-500 text-xs mt-1">Le nom doit contenir au moins 3 lettres et aucun chiffre/symbole.</p>
+                      )}
+           </div>
           
             <input 
               type="text" 
@@ -122,7 +127,11 @@ const isNomValid = nomRegex.test(nom);
        
         <div className="flex justify-center mb-10">
           
-        <button className={ `${color}` } onClick={()=>setIsSubscribed(!isSubscribed)}>{isSubscribed?"Se désinscrire" :"S'inscrire"}</button>
+        <button 
+          disabled={!isNomValid || nom === ""}
+        className={`w-[90%] py-3 text-white font-bold rounded-lg transition-colors 
+              ${(!isNomValid || nom === "") ? 'bg-gray-400 cursor-not-allowed' : color}`}
+               onClick={()=>setIsSubscribed(!isSubscribed)}>{isSubscribed?"Se désinscrire" :"S'inscrire"}</button>
         </div>
       </div>
     
