@@ -103,7 +103,7 @@ const totalParticipants =  isSubscribed ? props.match.participants.length + 1 : 
               className="p-2 border border-blue-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
-            
+             
             <select 
               value={niveau} 
               onChange={(e) => setNiveau(e.target.value)}
