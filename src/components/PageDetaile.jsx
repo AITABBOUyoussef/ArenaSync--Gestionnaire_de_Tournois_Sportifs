@@ -33,8 +33,10 @@ const ajouterParticipant = ()=>{
     status: niveau,
     avatar: "https://ui-avatars.com/api/?name=" + nom + "&background=random"
   };
-  setParticipantsList([...participantsList,nouveauParticipant]);
-  setIsSubscribed(true);
+  // participantsList.push(nouveauParticipant);
+   props.match.participants.push(nouveauParticipant);
+   
+   setIsSubscribed(true);
   setNom("");
   setEquipe("");
 };
